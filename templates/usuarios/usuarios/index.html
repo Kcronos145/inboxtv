@@ -1,0 +1,156 @@
+{% extends 'base/header.html' %}
+{% load static %}
+{% block title %}{{ user.username }}{% endblock title %}
+{% block body %}
+<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="index.html" class="s-text16">
+			Inicio
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="product.html" class="s-text16">
+			Perfil de Usuario
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="#" class="s-text16">
+			{{ profile }}
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+	</div>
+		<!-- Title Page -->
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/banner-de-search.png' %});">
+		<h2 class="l-text2 t-center">
+			Bienvanido {{ profile }}
+		</h2>
+	</section>
+	<div class="col-md-6"></div>
+	<!-- Cart -->
+	<section class="cart bgwhite p-t-70 p-b-100">
+		<div class="container">
+			<!-- Cart item -->
+			<!-- Total -->
+			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+				<h5 class="m-text20 p-b-24 text-center">
+					Perfil
+				</h5>
+
+				<!--  -->
+				<div class="flex-w flex-sb-m p-b-12">
+					<span class="s-text18 w-size19 w-full-sm">
+						Foto: 
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						<img style="width: 100%;height: 100%;" src="{{ profile.image.url }}">
+					</span>
+				</div>
+				<div class="flex-w flex-sb-m p-b-12">
+					<span class="s-text18 w-size19 w-full-sm">
+						Nombre: 
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						{{ profile.user.first_name }} {{ profile.user.last_name }}
+					</span>
+				</div>
+
+				<!--  -->
+				<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+					<span class="s-text18 w-size19 w-full-sm">
+						Creditos:
+					</span>
+
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23">
+							{{ profile.credito }}
+						</p>
+					</div>
+					<span class="s-text18 w-size19 w-full-sm">
+						Direccion:
+					</span>
+
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23">
+							{{ profile.address }},{{ profile.city }},{{ profile.country }}
+						</p>
+					</div>
+					<span class="s-text18 w-size19 w-full-sm">
+						Codigo ID:
+					</span>
+
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23">
+							{{ profile.codigo }}
+						</p>
+					</div>
+				</div>
+
+				<!--  -->
+				<div class="flex-w flex-sb-m p-t-26 p-b-30">
+					<span class="m-text22 w-size19 w-full-sm">
+						Password:
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+							Cambiar Password
+						</button>
+					</span>
+					<div class="mt-2"></div>
+					<span class="m-text22 w-size19 w-full-sm">
+						Formulario:
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						<a href="{% url 'Update_Form' %}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Completar Datos</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search -->
+		{% if lista %}
+			<section class="cart bgwhite p-t-70 p-b-100">
+				<div class="container">
+					<!-- Cart item -->
+					<div class="container-table-cart pos-relative">
+						<div class="wrap-table-shopping-cart bgwhite">
+							<table class="table-shopping-cart">
+								<tr class="table-head">
+									<th class="column-1">Cartelera</th>
+									<th class="column-2">Pelicula</th>
+									<th class="column-3">Estado</th>
+									<th class="column-4">Genero</th>
+									<th class="column-5">Opciones</th>
+									<th class="column-5">Fecha Agregada</th>
+								</tr>
+
+								{% for lista in lista %}
+									<tr class="table-row">
+										<td class="column-1">
+											<div class="cart-img-product b-rad-4 o-f-hidden">
+												<img src="{{ lista.pelicula.image.url }}" alt="IMG-PRODUCT">
+											</div>
+										</td>
+										<td class="column-2"><a href="/Principal/pelcila-detail/{{ lista.pelicula.id }}/{{ lista.pelicula.slug }}" class="s-text7">{{ lista.pelicula.title }}</a></td>
+										<td class="column-3">{{ lista.pelicula.id }}</td>
+										<td class="column-4">{{ lista.pelicula.genero }}</td>
+										<td class="column-5">
+											<div class="mt-3"></div>
+											<a href="/Principal/pelcila-detail/{{ lista.pelicula.id }}/{{ lista.pelicula.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											<div class="mt-3"></div>
+											<a href="/Usuarios/quitar-lista/{{ lista.pelicula.id }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Eliminar</a>
+										</td>
+										<td class="column-4">{{ lista.pelicula.create_at }}</td>
+
+									</tr>
+								{% endfor %}
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		{% endif %}
+{% endblock body %}

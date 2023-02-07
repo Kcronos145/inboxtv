@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>{% block title %}{% endblock title %} | InBoxTV</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'logo-figura-de-inbox.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/themify/themify-icons.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/elegant-font/html-css/style.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/lightbox2/css/lightbox.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body style="background: #03080c;" class="animsition">
+
+	<!-- Header -->
+	<header class="header1">
+		<!-- Header desktop -->
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<a href="#" class="topbar-social-item fa fa-facebook"></a>
+					<a href="#" class="topbar-social-item fa fa-instagram"></a>
+					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+				</div>
+
+				
+					<!-- SEARCH BAR-->
+					<style type="text/css">
+								/*-- Select input --*/
+
+								.input-select {
+								  padding: 0px 15px;
+								  background: #0b1319;
+								  color: #FFF;
+								  border: 1px solid #0b1319;
+								  height: 40px;
+								}
+									Search
+								\*----------------------------*/
+
+								.header-search {
+								  padding: 15px 0px;
+								}
+
+								.header-search form {
+								  position: relative;
+								}
+
+								.header-search form .input-select {
+								  margin-right: -4px;
+								  border-radius: 40px 0px 0px 40px;
+								}
+
+								.header-search form .input {
+								  width: calc(100% - 260px);
+								  margin-right: -4px;
+								}
+
+								.header-search form .search-btn {
+								  height: 40px;
+								  width: 100px;
+								  background: #071c2d;
+								  color: #FFF;
+								  font-weight: 700;
+								  border: none;
+								  border-radius: 0px 40px 40px 0px;
+								}
+
+								/*----------------------------*\
+								.aside+.aside {
+								  margin-top: 30px;
+								}
+
+								.aside>.aside-title {
+								  text-transform: uppercase;
+								  font-size: 18px;
+								  margin: 15px 0px 30px;
+								}
+
+								/*-- checkbox Filter --*/
+
+								.checkbox-filter>div+div {
+								  margin-top: 10px;
+								}
+
+								.checkbox-filter .input-radio label, .checkbox-filter .input-checkbox label {
+								  font-size: 12px;
+								}
+
+								.checkbox-filter .input-radio label small, .checkbox-filter .input-checkbox label small {
+								  color: #0b1319;
+								}
+
+								/*-- Price Filter --*/
+
+								#price-slider {
+								  margin-bottom: 15px;
+								}
+
+								.noUi-target {
+								  background-color: #0b1319;
+								  -webkit-box-shadow: none;
+								  box-shadow: none;
+								  border: 1px solid #0b1319;
+								  border-radius: 0px;
+								}
+
+								.noUi-connect {
+								  background-color: #D10024;
+								}
+
+								.noUi-horizontal {
+								  height: 6px;
+								}
+
+								.noUi-horizontal .noUi-handle {
+								  width: 12px;
+								  height: 12px;
+								  left: -6px;
+								  top: -4px;
+								  border: none;
+								  background: #0b1319;
+								  -webkit-box-shadow: none;
+								  box-shadow: none;
+								  border-radius: 50%;
+								}
+
+								.noUi-handle:before, .noUi-handle:after {
+								  display: none;
+								}
+
+								.price-filter .input-number {
+								  display: inline-block;
+								  width: calc(50% - 7px);
+								}
+								/*-- Review Form --*/
+
+								.review-form .input {
+								  margin-bottom: 15px;
+								}
+
+								.review-form .input-rating {
+								  margin-bottom: 15px;
+								}
+
+								.review-form .input-rating .stars {
+								  display: inline-block;
+								  vertical-align: top;
+								}
+
+								.review-form .input-rating .stars input[type="radio"] {
+								  display: none;
+								}
+
+								.review-form .input-rating .stars>label {
+								  float: right;
+								  cursor: pointer;
+								  padding: 0px 3px;
+								  margin: 0px;
+								}
+
+								.review-form .input-rating .stars>label:before {
+								  content: "\f006";
+								  font-family: FontAwesome;
+								  color: #0b1319;
+								  -webkit-transition: 0.2s all;
+								  transition: 0.2s all;
+								}
+								.input {
+								  height: 40px;
+								  padding: 0px 15px;
+								  border: 1px solid #0b1319;
+								  background-color: #0b1319;
+								  width: 100%;
+								}
+								.review-form .input-rating .stars>label:hover:before, .review-form .input-rating .stars>label:hover~label:before {
+								  color: #D10024;
+								}
+
+								.review-form .input-rating .stars>input:checked label:before, .review-form .input-rating .stars>input:checked~label:before {
+								  content: "\f005";
+								  color: #D10024;
+								}
+							</style>
+						<div class="header-search">
+							<form method="get" action="/search">
+								<select name="cantid" class="input-select">
+										<option value="0">Categorias</option>
+										{% for categoria in categoria %}
+											<option value="{{ categoria.id }}">{{ categoria.title }}</option>
+										{% endfor %}	
+									</select>
+								<input name="query" class="input" placeholder="Buscar.." required>
+								<button class="flex-c-m size5 ab-r-m color1 color0-hov trans-0-4">
+									<i class="fs-13 fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					<!--/SEARCH BAR -->
+				</span>
+
+				<div class="topbar-child2">
+					<span class="topbar-email">
+						contact@inboxtv.com
+					</span>
+
+					<div class="topbar-language rs1-select2">
+						<select class="selection-1" name="time">
+							<option>ES</option>
+							<option>EN</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrap_header">
+				<!-- Logo -->
+				<a href="{% url 'Inicio' %}" class="logo">
+					<img style="width: 70%;height: 100%;" src="{% static 'logo.png' %}" alt="LOGO_INBOXTV">
+				</a>
+
+				<!-- Menu -->
+				<div class="wrap_menu">
+					<nav class="menu">
+						<ul class="main_menu">
+							{% block nav %}
+								<li class="sale-noti"><!-- poner active en el boton de inicio pagina -->
+									<a href="{% url 'Inicio' %}">Inicio</a>
+									<ul class="sub_menu">
+										<li><a href="index.html">Pagina v1</a></li>
+										<li><a href="home-02.html">Pagina V2</a></li>
+										<li><a href="home-03.html">pagina V3</a></li>
+									</ul>
+								</li>
+
+								<li>
+									<a href="{% url 'Peliculas_Page' %}">Peliculas</a>
+								</li>
+
+								<li>
+									<a href="product.html">Series</a>
+								</li>
+
+								<li>
+									<a href="cart.html">Anime</a>
+								</li>
+
+								<li>
+									<a href="blog.html">Documentales</a>
+								</li>
+
+								<li>
+									<a href="about.html">Deportes</a>
+								</li>
+								
+								<li>
+									<a href="{% url 'Blog' %}">Blog</a>
+								</li>
+
+								<li>
+									<a href="about.html">Contactar</a>
+								</li>
+							{% endblock nav %}
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Header Icon -->
+				<div class="header-icons">
+					{% if user.is_authenticated %}
+						<!--<a href="{% url 'Perfil_User' %}" class="header-wrapicon1 dis-block">
+							{% if profile.image %}
+								<img style="height: 30px;width: 30px; border-radius: 50%" src="{{ profile.image.url }}" class="header-icon1" alt="{{ user.username }}">
+							{% else %}
+								<img src="{% static 'images/icons/icon-header-01.png' %}" class="header-icon1" alt="ICON">
+							{% endif %}
+						</a>
+
+						<span class="linedivide1"></span>-->
+
+						<div class="header-wrapicon2">
+							{% if profile.image %}
+								<img style="height: 30px;width: 30px; border-radius: 50%" src="{{ profile.image.url }}" class="fa fa-flag-checkered header-icon1 js-show-header-dropdown" alt="{{ user.username }}">
+							{% else %}
+								<img src="{% static 'images/icons/icon-header-01.png' %}" class="header-icon1 fa fa-flag-checkered header-icon1 js-show-header-dropdown" alt="ICON">
+							{% endif %}
+							<span class="header-icons-noti">{{ numero }}</span>
+
+							<!-- Header cart noti -->
+							<div class="header-cart header-dropdown">
+								<ul class="header-cart-wrapitem">
+
+									{% for lista in lista %}
+										<li class="header-cart-item">
+											<div class="header-cart-item-img">
+												<a href="/Usuarios/quitar-lista/{{ lista.pelicula.id }}"><img src="{{ lista.pelicula.image.url }}" alt="IMG"></a>
+											</div>
+
+											<div class="header-cart-item-txt">
+												<a href="/Peliculas/pelicula-detail/{{ lista.pelicula.id }}/{{ lista.pelicula.slug }}" class="header-cart-item-name">
+													{{  lista.pelicula.title }}
+												</a>
+
+												<span class="header-cart-item-info">
+													{{ lista.pelicula.id }} Puntos
+												</span>
+											</div>
+										</li>
+									{% endfor %}
+								</ul>
+
+								<div class="header-cart-total">
+									Puntos: {{ profile.credito }} 
+								</div>
+
+								<div class="header-cart-buttons">
+									<div class="header-cart-wrapbtn">
+										<!-- Button -->
+										<a href="{% url 'Perfil_User' %}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Ir A mi Perfil
+										</a>
+									</div>
+
+									<div class="header-cart-wrapbtn">
+										<!-- Button -->
+										<a href="{% url 'Logout_Form' %}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											salir
+										</a>
+									</div>
+								</div>
+							</div>
+					{% else %}
+						<div class="wrap_menu">
+							<nav class="menu">
+								<ul class="main_menu">
+									<li>
+										<a href="{% url 'Signup_Form' %}">SiginUp</a>
+									</li>/
+									<li>
+										<a href="{% url 'Login_Form' %}">Login</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					{% endif %}
+
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap_header_mobile">
+			<!-- Logo moblie -->
+			<a href="index.html" class="logo-mobile">
+				<img src="{% static 'images/icons/logo.png' %}" alt="IMG-LOGO">
+			</a>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu">
+				<!-- Header Icon mobile -->
+				<div class="header-icons-mobile">
+					<a href="#" class="header-wrapicon1 dis-block">
+						<img src="{% static 'images/icons/icon-header-01.png' %}" class="header-icon1" alt="ICON">
+					</a>
+
+					<span class="linedivide2"></span>
+
+					<div class="header-wrapicon2">
+						<img src="{% static 'images/icons/icon-header-02.png' %}" class="header-icon1 js-show-header-dropdown" alt="ICON">
+						<span class="header-icons-noti">0</span>
+
+						<!-- Header cart noti -->
+						<div class="header-cart header-dropdown">
+							<ul class="header-cart-wrapitem">
+								<li class="header-cart-item">
+									<div class="header-cart-item-img">
+										<img src="{% static 'images/item-cart-01.jpg' %}" alt="IMG">
+									</div>
+
+									<div class="header-cart-item-txt">
+										<a href="#" class="header-cart-item-name">
+											White Shirt With Pleat Detail Back
+										</a>
+
+										<span class="header-cart-item-info">
+											1 x $19.00
+										</span>
+									</div>
+								</li>
+
+								<li class="header-cart-item">
+									<div class="header-cart-item-img">
+										<img src="{% static 'images/item-cart-02.jpg' %}" alt="IMG">
+									</div>
+
+									<div class="header-cart-item-txt">
+										<a href="#" class="header-cart-item-name">
+											Converse All Star Hi Black Canvas
+										</a>
+
+										<span class="header-cart-item-info">
+											1 x $39.00
+										</span>
+									</div>
+								</li>
+
+								<li class="header-cart-item">
+									<div class="header-cart-item-img">
+										<img src="{% static 'images/item-cart-03.jpg' %}" alt="IMG">
+									</div>
+
+									<div class="header-cart-item-txt">
+										<a href="#" class="header-cart-item-name">
+											Nixon Porter Leather Watch In Tan
+										</a>
+
+										<span class="header-cart-item-info">
+											1 x $17.00
+										</span>
+									</div>
+								</li>
+							</ul>
+
+							<div class="header-cart-total">
+								Total: $75.00
+							</div>
+
+							<div class="header-cart-buttons">
+								<div class="header-cart-wrapbtn">
+									<!-- Button -->
+									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										View Cart
+									</a>
+								</div>
+
+								<div class="header-cart-wrapbtn">
+									<!-- Button -->
+									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Check Out
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Menu Mobile -->
+		<div class="wrap-side-menu" >
+			<nav class="side-menu">
+				<ul class="main-menu">
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<span class="topbar-child1">
+							<!-- SEARCH BAR -->
+							<style type="text/css">
+								/*-- Select input --*/
+
+								.input-select {
+								  padding: 0px 15px;
+								  background: #0b1319;
+								  color: #FFF;
+								  border: 1px solid #0b1319;
+								  height: 40px;
+								}
+									Search
+								\*----------------------------*/
+
+								.header-search {
+								  padding: 15px 0px;
+								}
+
+								.header-search form {
+								  position: relative;
+								}
+
+								.header-search form .input-select {
+								  margin-right: -4px;
+								  border-radius: 40px 0px 0px 40px;
+								}
+
+								.header-search form .input {
+								  width: calc(100% - 260px);
+								  margin-right: -4px;
+								}
+
+								.header-search form .search-btn {
+								  height: 40px;
+								  width: 100px;
+								  background: #071c2d;
+								  color: #FFF;
+								  font-weight: 700;
+								  border: none;
+								  border-radius: 0px 40px 40px 0px;
+								}
+
+								/*----------------------------*\
+								.aside+.aside {
+								  margin-top: 30px;
+								}
+
+								.aside>.aside-title {
+								  text-transform: uppercase;
+								  font-size: 18px;
+								  margin: 15px 0px 30px;
+								}
+
+								/*-- checkbox Filter --*/
+
+								.checkbox-filter>div+div {
+								  margin-top: 10px;
+								}
+
+								.checkbox-filter .input-radio label, .checkbox-filter .input-checkbox label {
+								  font-size: 12px;
+								}
+
+								.checkbox-filter .input-radio label small, .checkbox-filter .input-checkbox label small {
+								  color: #0b1319;
+								}
+
+								/*-- Price Filter --*/
+
+								#price-slider {
+								  margin-bottom: 15px;
+								}
+
+								.noUi-target {
+								  background-color: #0b1319;
+								  -webkit-box-shadow: none;
+								  box-shadow: none;
+								  border: 1px solid #0b1319;
+								  border-radius: 0px;
+								}
+
+								.noUi-connect {
+								  background-color: #D10024;
+								}
+
+								.noUi-horizontal {
+								  height: 6px;
+								}
+
+								.noUi-horizontal .noUi-handle {
+								  width: 12px;
+								  height: 12px;
+								  left: -6px;
+								  top: -4px;
+								  border: none;
+								  background: #0b1319;
+								  -webkit-box-shadow: none;
+								  box-shadow: none;
+								  border-radius: 50%;
+								}
+
+								.noUi-handle:before, .noUi-handle:after {
+								  display: none;
+								}
+
+								.price-filter .input-number {
+								  display: inline-block;
+								  width: calc(50% - 7px);
+								}
+								/*-- Review Form --*/
+
+								.review-form .input {
+								  margin-bottom: 15px;
+								}
+
+								.review-form .input-rating {
+								  margin-bottom: 15px;
+								}
+
+								.review-form .input-rating .stars {
+								  display: inline-block;
+								  vertical-align: top;
+								}
+
+								.review-form .input-rating .stars input[type="radio"] {
+								  display: none;
+								}
+
+								.review-form .input-rating .stars>label {
+								  float: right;
+								  cursor: pointer;
+								  padding: 0px 3px;
+								  margin: 0px;
+								}
+
+								.review-form .input-rating .stars>label:before {
+								  content: "\f006";
+								  font-family: FontAwesome;
+								  color: #0b1319;
+								  -webkit-transition: 0.2s all;
+								  transition: 0.2s all;
+								}
+								.input {
+								  height: 40px;
+								  padding: 0px 15px;
+								  border: 1px solid #0b1319;
+								  background-color: #0b1319;
+								  width: 100%;
+								}
+								.review-form .input-rating .stars>label:hover:before, .review-form .input-rating .stars>label:hover~label:before {
+								  color: #D10024;
+								}
+
+								.review-form .input-rating .stars>input:checked label:before, .review-form .input-rating .stars>input:checked~label:before {
+								  content: "\f005";
+								  color: #D10024;
+								}
+							</style>
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="0">Categorias</option>
+										{% for categoria in categoria %}
+											<option value="{{ categoria.id }}">{{ categoria.title }}</option>
+										{% endfor %}	
+									</select>
+									<input class="input" placeholder="Buscar..">
+									<button class="flex-c-m size5 ab-r-m color1 color0-hov trans-0-4">
+										<i class="fs-13 fa fa-search" aria-hidden="true"></i>
+									</button>
+								</form>
+							</div>
+						 <!--/SEARCH BAR -->
+						</span>
+					</li>
+
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child2-mobile">
+							<span class="topbar-email">
+								fashe@example.com
+							</span>
+
+							<div class="topbar-language rs1-select2">
+								<select class="selection-1" name="time">
+									<option>ES</option>
+									<option>EN</option>
+								</select>
+							</div>
+						</div>
+					</li>
+
+					<li class="item-topbar-mobile p-l-10">
+						<div class="topbar-social-mobile">
+							<a href="#" class="topbar-social-item fa fa-facebook"></a>
+							<a href="#" class="topbar-social-item fa fa-instagram"></a>
+							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+						</div>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a class="item-menu-mobile" href="index.html">Home</a>
+						<ul class="sub-menu">
+							<li><a href="index.html">Homepage V1</a></li>
+							<li><a href="home-02.html">Homepage V2</a></li>
+							<li><a href="home-03.html">Homepage V3</a></li>
+						</ul>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="product.html">Peliculas</a>
+					</li>
+
+					<li>
+						<a href="product.html">Series</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="cart.html">Anime</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="blog.html">Documentales</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="about.html">Puntos</a>
+					</li>
+
+					<li>
+						<a href="about.html">Contactos</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	{% block body %}
+	{% endblock body %}
+	<!-- Footer -->
+	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+		<div class="flex-w p-b-90">
+			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Importante
+				</h4>
+
+				<div>
+					<p class="s-text7 w-size27">
+						Tenemos varias direciones virtuales las cuale s las pedes consultar por el <a href="#">Blog</a>
+					</p>
+
+					<div class="flex-m p-t-30">
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Categorias
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Peliculas
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Series
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Anime
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Deportes
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Links
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Buscar
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Nosotros
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Contatos
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Blog
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Ayuda
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Reportar falla
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Hacer colaboracion
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Comprar
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							FAQs
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Mantente al dia
+				</h4>
+
+				<form>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="myemail@example.com">
+						<span class="effect1-line"></span>
+					</div>
+
+					<div class="w-size2 p-t-20">
+						<!-- Button -->
+						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+							Subscribe
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="t-center p-l-15 p-r-15">
+			<a href="#">
+				<img class="h-size2" src="{% static 'images/icons/paypal.png' %}" alt="IMG-PAYPAL">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static 'images/icons/visa.png' %}" alt="IMG-VISA">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static 'images/icons/mastercard.png' %}" alt="IMG-MASTERCARD">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static 'images/icons/express.png' %}" alt="IMG-EXPRESS">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static 'images/icons/discover.png' %}" alt="IMG-DISCOVER">
+			</a>
+
+			<div class="t-center s-text8 p-t-20">
+				Copyright © 2020 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection1 -->
+	<div id="dropDownSelect1"></div>
+
+
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/slick/slick.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/slick-custom.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'vendor/lightbox2/js/lightbox.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

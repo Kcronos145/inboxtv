@@ -1,0 +1,238 @@
+{% extends 'base/header.html' %}
+{% load static %}
+{% block title %}{{ query }}{% endblock title %}
+{% block body %}
+<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="{% url 'Inicio' %}" class="s-text16">
+			Inicio
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="product.html" class="s-text16">
+			Busquedas
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="#" class="s-text16">
+			{{ query }}
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+	</div>
+	
+			<!-- Title Page -->
+			<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/banner-de-search.png' %});">
+				<h2 class="l-text2 t-center">
+					{{ query }}
+				</h2>
+			</section>
+
+			<!-- Cart -->
+			<section class="cart bgwhite p-t-70 p-b-100">
+				<div class="container">
+					{% if p %}
+						<!-- Peliculas item -->
+						<div class="container-table-cart pos-relative">
+							<div class="wrap-table-shopping-cart bgwhite">
+								<h1>PELICULAS</h1>
+								<table class="table-shopping-cart">
+									<tr class="table-head">
+										<th class="column-1">Cartelera</th>
+										<th class="column-2">Pelicula</th>
+										<th class="column-3">Puntos</th>
+										<th class="column-4">Genero</th>
+										<th class="column-5">Opciones</th>
+									</tr>
+
+									{% for p in p %}
+										<tr class="table-row">
+											<td class="column-1">
+												<div class="cart-img-product b-rad-4 o-f-hidden">
+													<img src="{{ p.image.url }}" alt="IMG-PRODUCT">
+												</div>
+											</td>
+											<td class="column-2">{{ p.title }}</td>
+											<td class="column-3">{{ p.id }}</td>
+											<td class="column-4">{{ p.genero }}</td>
+											<td class="column-5">
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">agrgar</a>
+												<div class="mt-3"></div>
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+						<div class="mt-5"></div>
+					{% endif %}
+					<!-- Anime item -->
+					{% if a %}
+						<div class="container-table-cart pos-relative">
+							<div class="wrap-table-shopping-cart bgwhite">
+								<h1>ANIME</h1>
+								<table class="table-shopping-cart">
+									<tr class="table-head">
+										<th class="column-1">Cartelera</th>
+										<th class="column-2">Anime</th>
+										<th class="column-3">Puntos</th>
+										<th class="column-4">Genero</th>
+										<th class="column-5">Opciones</th>
+									</tr>
+
+									{% for a in a %}
+										<tr class="table-row">
+											<td class="column-1">
+												<div class="cart-img-product b-rad-4 o-f-hidden">
+													<img src="{{ a.image.url }}" alt="IMG-PRODUCT">
+												</div>
+											</td>
+											<td class="column-2">{{ a.title }}</td>
+											<td class="column-3">{{ a.id }}</td>
+											<td class="column-4">{{ a.genero }}</td>
+											<td class="column-5">
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">agrgar</a>
+												<div class="mt-3"></div>
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+
+						<div class="mt-5"></div>
+					{% endif %}
+					<!-- Series item -->
+					{% if s %}
+						<div class="container-table-cart pos-relative">
+							<div class="wrap-table-shopping-cart bgwhite">
+								<h1>SERIES</h1>
+								<table class="table-shopping-cart">
+									<tr class="table-head">
+										<th class="column-1">Cartelera</th>
+										<th class="column-2">Serie</th>
+										<th class="column-3">Puntos</th>
+										<th class="column-4">Genero</th>
+										<th class="column-5">Opciones</th>
+									</tr>
+
+									{% for s in s %}
+										<tr class="table-row">
+											<td class="column-1">
+												<div class="cart-img-product b-rad-4 o-f-hidden">
+													<img src="{{ s.image.url }}" alt="IMG-PRODUCT">
+												</div>
+											</td>
+											<td class="column-2">{{ s.title }}</td>
+											<td class="column-3">{{ s.id }}</td>
+											<td class="column-4">{{ s.genero }}</td>
+											<td class="column-5">
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">agrgar</a>
+												<div class="mt-3"></div>
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+						<div class="mt-5"></div>
+					{% endif %}
+					<!-- Documentales item -->
+					{% if d %}
+						<div class="container-table-cart pos-relative">
+							<div class="wrap-table-shopping-cart bgwhite">
+								<h1>DOCUMENTALES</h1>
+								<table class="table-shopping-cart">
+									<tr class="table-head">
+										<th class="column-1">Cartelera</th>
+										<th class="column-2">Documental</th>
+										<th class="column-3">Puntos</th>
+										<th class="column-4">Genero</th>
+										<th class="column-5">Opciones</th>
+									</tr>
+
+									{% for d in d %}
+										<tr class="table-row">
+											<td class="column-1">
+												<div class="cart-img-product b-rad-4 o-f-hidden">
+													<img src="{{ d.image.url }}" alt="IMG-PRODUCT">
+												</div>
+											</td>
+											<td class="column-2">{{ d.title }}</td>
+											<td class="column-3">{{ d.id }}</td>
+											<td class="column-4">{{ d.genero }}</td>
+											<td class="column-5">
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">agrgar</a>
+												<div class="mt-3"></div>
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+						<div class="mt-5"></div>
+					{% endif %}
+					{% if a %}
+						<!-- aniem item -->
+						<div class="container-table-cart pos-relative">
+							<div class="wrap-table-shopping-cart bgwhite">
+								<h1>ANIME</h1>
+								<table class="table-shopping-cart">
+									<tr class="table-head">
+										<th class="column-1">Cartelera</th>
+										<th class="column-2">Anime</th>
+										<th class="column-3">Puntos</th>
+										<th class="column-4">Genero</th>
+										<th class="column-5">Opciones</th>
+									</tr>
+
+									{% for a in a %}
+										<tr class="table-row">
+											<td class="column-1">
+												<div class="cart-img-product b-rad-4 o-f-hidden">
+													<img src="{{ a.image.url }}" alt="IMG-PRODUCT">
+												</div>
+											</td>
+											<td class="column-2">{{ a.title }}</td>
+											<td class="column-3">{{ a.id }}</td>
+											<td class="column-4">{{ a.genero }}</td>
+											<td class="column-5">
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">agrgar</a>
+												<div class="mt-3"></div>
+												<a href="/Principal/pelcila-detail/{{ p.id }}/{{ p.slug }}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Ver</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+					{% endif %}
+
+					<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
+						<div class="flex-w flex-m w-full-sm">
+							<div class="size11 bo4 m-r-10">
+								<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Coupon Code">
+							</div>
+
+							<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
+								<!-- Button -->
+								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+									Obtener creditos
+								</button>
+							</div>
+						</div>
+
+						<div class="size10 trans-0-4 m-t-10 m-b-10">
+							<!-- Button -->
+							<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+								buscramas...
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+	
+{% endblock body %}

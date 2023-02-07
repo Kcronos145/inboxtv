@@ -1,0 +1,290 @@
+{% extends 'base/header.html' %}
+{% load static %}
+{% block title %}{{ pelicula.title }}{% endblock title %}
+{% block body %}
+	<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="index.html" class="s-text16">
+			Inicio
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="product.html" class="s-text16">
+			Pelulas
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<a href="#" class="s-text16">
+			{{ pelicula.genero }}
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<span class="s-text17">
+			{{ pelicula.title }}
+		</span>
+	</div>
+
+	<!-- Product Detail -->
+	<div class="container bgwhite p-t-35 p-b-80">
+		<div class="flex-w flex-sb">
+			<div class="w-size13 p-t-30 respon5">
+				<div class="wrap-slick3 flex-sb flex-w">
+					<div class="wrap-slick3-dots"></div>
+
+					<div class="slick3">
+						<div class="item-slick3" data-thumb="{{ pelicula.image.url }}">
+							<div class="wrap-pic-w">
+								<img src="{{ pelicula.image.url }}" alt="IMG-PRODUCT">
+							</div>
+						</div>
+						{% for images in images %}
+							<div class="item-slick3" data-thumb="{{ images.image.url }}">
+								<div class="wrap-pic-w">
+									<img src="{{ images.image.url }}" alt="IMG-PRODUCT">
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size14 p-t-30 respon5">
+				<h4 class="product-detail-name m-text16 p-b-13 text-center">
+					{{ pelicula.title }}
+				</h4>
+
+				<span class="m-text17">
+					{{ pelicula.puntuacion }} <i class="fa fa-flag-checkered"></i> Puntos 
+				</span>
+				<div class="p-b-45">
+					<div>
+                        <div class="product-rating">
+							<i class="fa fa-star{% if pelicula.avaregereview < 1%}-o empty{% endif%}"></i>
+                            <i class="fa fa-star{% if pelicula.avaregereview < 2%}-o empty{% endif%}"></i>
+                            <i class="fa fa-star{% if pelicula.avaregereview < 3%}-o empty{% endif%}"></i>
+                            <i class="fa fa-star{% if pelicula.avaregereview < 4%}-o empty{% endif%}"></i>
+                            <i class="fa fa-star{% if pelicula.avaregereview < 5%}-o empty{% endif%}"></i>
+                            {{ pelicula.avaregereview | stringformat:".2f"}}
+                       </div>
+                        <a href="#tab1"> {{ pelicula.countreview }}  Comentario(s) </a>
+                    </div>
+                    {% if pelicula.status_subida == 'Proximamante' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h1 style="background: green;text-align: center;">Proximamente</h1></span>
+						</p>
+					{% elif pelicula.status_subida == 'Se Estrenara En' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: red;text-align: center;">Se Estrena En {{ pelicula.frecha_estreno.day }} Dias</h3></span>
+						</p>
+					{% elif pelicula.status_subida == 'Retrasada' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: blue;text-align: center;">Reatrasada</h3></span>
+						</p>
+					{% elif pelicula.status_subida == 'Retrasada 30dias' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: grey;text-align: center;">Retrasada 30 Dias</h3></span>
+						</p>
+					{% elif pelicula.status_subida == 'Estreno' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: white;text-align: center;">Estreno</h3></span>
+						</p>
+					{% elif pelicula.status_subida == 'Publicada' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: black;color: white;text-align: center;">Publicada</h3></span>
+						</p>
+					{% elif pelicula.status_subida == 'Clausurada' %}
+						<p class="s-text8 p-t-10">
+							<span class="s-text8 m-r-35 mt-4"><h3 style="background: orange;text-align: center;">Clausurada</h3></span>
+						</p>
+					{% endif  %}
+					<div style="padding-top: 5%;"></div>
+					<span class="s-text8 m-r-35 mt-4">Codigo: MUTYRG-01045099</span>
+					<span class="s-text8">Categoria: {{ pelicula.genero }}</span>
+					
+				</div>
+
+				<!--  -->
+				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Description
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">
+							{{ pelicula.description }}
+						</p>
+					</div>
+				</div>
+				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Actores
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">
+							{{ actores.nombre }} {{ actores.apellido }}
+						</p>
+					</div>
+				</div>
+				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Ver online en InBoxTV
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">
+							{{ pelicula.detail }}
+						</p>
+					</div>
+				</div>
+				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Enlace de Descraga
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">
+							{{ pelicula.pixel }}
+						</p>
+					</div>
+				</div>
+
+				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Reviews ({{ pelicula.countreview }})
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<div class="row">
+										<div class="col-md-6">
+											{% for comentarios in comentarios %}
+												<div class="product-reviews">
+													<div class="single-review">
+														<div class="review-heading">
+															<div><a href="#"><i class="fa fa-user-o"></i> {{ comentarios.subject }}</a></div>
+															<div><a href="#"><i class="fa fa-clock-o"></i>{{ comentarios.create_at.year }}/{{ comentarios.create_at.day }} / {{ comentarios.create_at.hour }}/ {{ comentarios.create_at.minute }}</a></div>
+															<div class="review-rating pull-right">
+																<i class="fa fa-star{% if comentarios.rate < 1 %}-o empty{% endif %}"></i>
+																<i class="fa fa-star{% if comentarios.rate < 2 %}-o empty{% endif %}"></i>
+																<i class="fa fa-star{% if comentarios.rate < 3 %}-o empty{% endif %}"></i>
+																<i class="fa fa-star{% if comentarios.rate < 4 %}-o empty{% endif %}"></i>
+																<i class="fa fa-star{% if comentarios.rate < 5 %}-o empty{% endif %}"></i>
+															</div>
+														</div>
+														<div class="review-body">
+															<p>{{ comentarios.comment }}</p>
+														</div>
+													</div>
+												</div>
+											{% endfor %}
+										</div>
+										<div class="col-md-6">
+											<h4 class="text-uppercase">Comenta</h4>
+											<p>Para que los demas vean tu comentario</p>
+											<form class="review-form" method="post" action="/Principal/addcomment/{{ pelicula.id }}">
+											{% csrf_token %}
+												{% if user.is_authenticated %}
+												{% else %}
+													<div class="form-group">
+														<input class="input" type="text" name="subject" placeholder="Nombre" />
+													</div>
+													<!--<div class="form-group">
+														<input class="input" type="text" name="correo" placeholder="Email" />
+													</div>-->
+												{% endif %}
+												
+												<div class="form-group">
+													<textarea class="input" name="comment" placeholder="Comentario"></textarea>
+												</div>
+												<div class="form-group">
+													<div class="input-rating">
+														<strong class="text-uppercase">Puntuacion: </strong>
+														<div class="stars">
+															<input type="radio" id="star5" name="rate" value="5" /><label for="star5"></label>
+															<input type="radio" id="star4" name="rate" value="4" /><label for="star4"></label>
+															<input type="radio" id="star3" name="rate" value="3" /><label for="star3"></label>
+															<input type="radio" id="star2" name="rate" value="2" /><label for="star2"></label>
+															<input type="radio" id="star1" name="rate" value="1" /><label for="star1"></label>
+														</div>
+													</div>
+												</div>
+												<button class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">Agregar</button>
+											</form>
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Relate Product -->
+	<section class="relateproduct bgwhite p-t-45 p-b-138">
+		<div class="container">
+			<div class="sec-title p-b-60">
+				<h3 class="m-text5 t-center">
+					Peliculas que te pueden interesar 
+				</h3>
+			</div>
+
+			<!-- Slide2 -->
+			<div class="wrap-slick2">
+				<div class="slick2">
+
+					{% for peliculas in peliculas %}
+						<div class="item-slick2 p-l-15 p-r-15">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+									<img src="{{ peliculas.image.url }}" alt="IMG-PRODUCT">
+
+									<div class="block2-overlay trans-0-4">
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a>
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+												Ver
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="/Peliculas/pelicula-detail/{{ peliculas.id}}/{{ peliculas.slug }}" class="block2-name dis-block s-text3 p-b-5">
+										{{ peliculas.title }}
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+										{{ peliculas.id }} Puntos
+									</span>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+		</div>
+	</section>
+{% endblock body %}

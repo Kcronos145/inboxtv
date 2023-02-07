@@ -1,0 +1,40 @@
+{% extends 'base/header.html' %}
+{% load static %}
+{% block title %}Up Date Form{% endblock title %}
+{% block body %}
+
+	<!-- Title Page -->
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url({% static 'images/banner-login.png' %});">
+		<h2 class="l-text2 t-center">
+			Login
+		</h2>
+	</section>
+
+	<!-- content page -->
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-b-30">
+					<div class="p-r-20 p-r-0-lg">
+						<div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="{% static 'images/icons/icon-position-map.png' %}" data-scrollwhell="0" data-draggable="1"></div>
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<form class="contact-form" method="POST" enctype = "multipart/form-data">
+				        {% csrf_token %}
+				        <div class="aa-single-field">
+				            <fieldset class="form-group">
+				                {{ user_form.as_p  }}
+				                {{ profile_form.as_p  }}
+				            </fieldset>
+				        </div>
+				        <div class="form-group">
+				            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">Completar Formulario</button>
+				        </div>
+				    </form>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock body %}
